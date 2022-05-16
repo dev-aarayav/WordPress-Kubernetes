@@ -8,6 +8,31 @@ Execute the following command
 kubectl create -f .
 ```
 
+## How to perform a Rolling Update strategy?
+
+```sh
+kubectl get deployment
+kubectl delete deploy\name_deploy
+kubectl create -f .\deploy_name.yaml --record 
+kubectl rollout history deploy\name_deploy
+kubectl apply -f .\name_deploy.yaml --record
+kubectl rollout history deploy\name_deploy --revision #_of_revision
+kubectl describe deploy\name_deploy 
+```
+
+## How to perform a Rollout strategy?
+
+```sh
+kubectl rollout history deploy\name_deploy
+kubectl rollout undo deploy/name_deploy
+```
+
+Execute the following command
+
+```sh
+kubectl create -f .
+```
+
 ## How to access the application?
 
 Check the NodePort created by executing the command, you will notice a NodePort Service created with a specific port from 30000-32767
